@@ -53,8 +53,8 @@
 
   services.xserver = {
     enable = true;
-    layout = "au";
-    xkbVariant = "";
+    xkb.layout = "au";
+    xkb.variant = "";
 
     desktopManager = {
       xterm.enable = false;
@@ -70,5 +70,11 @@
         rofi # Application Launcher
       ];
     };
+  };
+
+  # Remote Desktop
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "i3";
   };
 }
