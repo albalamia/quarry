@@ -71,6 +71,6 @@
   # Remote Desktop
   services.xrdp = {
     enable = true;
-    services.xrdp.openFirewall = true;
+    openFirewall = true;
   };
 }
