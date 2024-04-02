@@ -30,10 +30,8 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-
-
   # Define user accounts
-  users.users.adamb = {
+  users.users.adam = {
     description = "Adam Brickhill";
 
     group = "users";
@@ -57,8 +55,7 @@
     xkb.variant = "";
 
     desktopManager.xterm.enable = false;
-
-    # displayManager.defaultSession = "none+i3";
+    displayManager.enable = false;
 
     windowManager.i3 = {
       enable = true;
@@ -72,5 +69,6 @@
   services.xrdp = {
     enable = true;
     openFirewall = true;
+    defaultWindowManager = "i3";
   };
 }
