@@ -56,13 +56,9 @@
     xkb.layout = "au";
     xkb.variant = "";
 
-    desktopManager = {
-      xterm.enable = false;
-    };
+    desktopManager.xterm.enable = false;
 
-    displayManager = {
-      defaultSession = "none+i3";
-    };
+    # displayManager.defaultSession = "none+i3";
 
     windowManager.i3 = {
       enable = true;
@@ -75,6 +71,6 @@
   # Remote Desktop
   services.xrdp = {
     enable = true;
-    defaultWindowManager = "i3";
+    services.xrdp.openFirewall = true;
   };
 }
