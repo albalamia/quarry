@@ -53,7 +53,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet i3";
+        command = "startx";
         user = "adam";
       };
     };
