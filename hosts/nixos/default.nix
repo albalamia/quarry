@@ -49,27 +49,24 @@
   # Services
   services.openssh.enable = true;
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "startx";
-        user = "adam";
-      };
-    };
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "startx";
+  #       user = "adam";
+  #     };
+  #   };
+  # };
 
   services.xserver = {
     enable = true;
     xkb.layout = "au";
     xkb.variant = "";
 
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        rofi # Application Launcher
-      ];
-    };
+    displayManager.sx.enable = true;
+
+    windowManager.i3.enable = true;
 
     excludePackages = [ pkgs.xterm ];
   };
