@@ -55,7 +55,7 @@
     xkb.variant = "";
 
     desktopManager.xterm.enable = false;
-    # displayManager.enable = false;
+    displayManager.ly.enable = true;
 
     windowManager.i3 = {
       enable = true;
