@@ -48,6 +48,7 @@
 
   # Services
   services.openssh.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
@@ -57,27 +58,41 @@
       };
     };
   };
-  # services.xserver = {
-  #   enable = true;
-  #   xkb.layout = "au";
-  #   xkb.variant = "";
 
-  #   displayManager.sx.enable = true;
+  services.xserver = {
+    enable = true;
+    xkb.layout = "au";
+    xkb.variant = "";
 
-  #   windowManager.i3 = {
-  #     enable = true;
-  #     extraPackages = with pkgs; [
-  #       rofi # Application Launcher
-  #     ];
-  #   };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        rofi # Application Launcher
+      ];
+    };
 
-  #   excludePackages = [ pkgs.xterm ];
-  # };
+    excludePackages = [ pkgs.xterm ];
+  };
 
   # Remote Desktop
   services.xrdp = {
     enable = true;
     openFirewall = true;
     defaultWindowManager = "i3";
+  };
+
+  # this is a life saver.
+  # literally no documentation about this anywhere.
+  # might be good to write about this...
+  # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
   };
 }
