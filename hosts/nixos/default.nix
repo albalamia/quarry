@@ -48,22 +48,31 @@
 
   # Services
   services.openssh.enable = true;
-
-  services.xserver = {
+  services.greetd = {
     enable = true;
-    xkb.layout = "au";
-    xkb.variant = "";
-
-    desktopManager.xterm.enable = false;
-    displayManager.ly.enable = true;
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        rofi # Application Launcher
-      ];
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet i3";
+        user = "adam";
+      };
     };
   };
+  # services.xserver = {
+  #   enable = true;
+  #   xkb.layout = "au";
+  #   xkb.variant = "";
+
+  #   displayManager.sx.enable = true;
+
+  #   windowManager.i3 = {
+  #     enable = true;
+  #     extraPackages = with pkgs; [
+  #       rofi # Application Launcher
+  #     ];
+  #   };
+
+  #   excludePackages = [ pkgs.xterm ];
+  # };
 
   # Remote Desktop
   services.xrdp = {
