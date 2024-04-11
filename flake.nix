@@ -1,5 +1,5 @@
 {
-  description = "Hive";
+  description = "Syndicate";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";

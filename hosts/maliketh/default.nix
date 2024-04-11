@@ -57,9 +57,6 @@
     users.adam = import ./home.nix;
   };
 
-  # Allow Unfree Packages
-  nixpkgs.config.allowUnfree = true;
-
   # Installing Packages
   environment.pathsToLink = [ "/libexec" ];
   environment.systemPackages = with pkgs; [
