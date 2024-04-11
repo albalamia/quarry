@@ -4,7 +4,7 @@
 # Laptop  -
 # Servers -
 
-{ nixpkgs, home-manager, ... }:
+{ nixpkgs, unstable, home-manager, ... }:
 
 {
   maliketh = nixpkgs.lib.nixosSystem {

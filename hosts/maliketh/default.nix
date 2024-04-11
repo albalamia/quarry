@@ -1,17 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
   ];
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      packageOverrides = pkgs: {
-        unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
-      };
-    };
-  };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -59,8 +51,8 @@
 
   # Installing Packages
   environment.pathsToLink = [ "/libexec" ];
-  environment.systemPackages = with pkgs; [
-    termite
+  environment.systemPackages = [
+    pkgs.termite
     unstable.bun
   ];
 
