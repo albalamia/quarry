@@ -1,9 +1,20 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   imports = [
     ./hardware-configuration.nix
   ];
+  # nixpkgs = {
+  #   config = {
+  #     allowUnfree = true;
+  #     packageOverrides = pkgs: {
+  #       unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
+  #     };
+  #   };
+  # };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
