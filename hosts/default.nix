@@ -12,9 +12,11 @@
     modules = [
       ./maliketh
       ./configuration.nix
-      unstable
       home-manager.nixosModules.home-manager
     ];
+    specialArgs = {
+      inherit unstable;
+    };
   };
 
   nixos = nixpkgs.lib.nixosSystem {
