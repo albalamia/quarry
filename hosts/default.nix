@@ -4,14 +4,15 @@
 # Laptop  -
 # Servers -
 
-{ nixpkgs, ... }:
+{ nixpkgs, home-manager, ... }:
 
 {
-  adam = nixpkgs.lib.nixosSystem {
+  maliketh = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./adam
+      ./maliketh
       ./configuration.nix
+      home-manager.nixosModules.home-manager
     ];
   };
 
@@ -20,6 +21,7 @@
     modules = [
       ./nixos
       ./configuration.nix
+      home-manager.nixosModules.home-manager
     ];
   };
 }

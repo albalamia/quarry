@@ -10,7 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.hostName = "nixos";
+  networking.hostName = "maliketh";
   networking.networkmanager.enable = true;
 
   # Time Zone
@@ -31,12 +31,22 @@
   };
 
   # Define user accounts
-  users.users.adam = {
-    description = "Adam Brickhill";
+  users = {
+    users.adam = {
+      description = "Adam Brickhill";
 
-    group = "users";
-    extraGroups = [ "wheel" "networking" ];
-    isNormalUser = true;
+      group = "users";
+      extraGroups = [ "wheel" "networking" ];
+      isNormalUser = true;
+      useDefaultShell = true;
+    };
+    defaultUserShell = pkgs.zsh;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.adam = import ./home.nix;
   };
 
   # Allow Unfree Packages
@@ -44,7 +54,10 @@
 
   # Installing Packages
   environment.pathsToLink = [ "/libexec" ];
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    termite
+    unstable.bun
+  ];
 
   # Services
   services.openssh.enable = true;
