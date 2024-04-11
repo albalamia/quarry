@@ -9,14 +9,14 @@
 {
   maliketh = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
+    extraSpecialArgs = {
+      inherit unstable;
+    };
     modules = [
       ./maliketh
       ./configuration.nix
       home-manager.nixosModules.home-manager
     ];
-    specialArgs = {
-      inherit unstable;
-    };
   };
 
   nixos = nixpkgs.lib.nixosSystem {
