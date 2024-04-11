@@ -9,9 +9,7 @@
 {
   maliketh = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    extraSpecialArgs = {
-      inherit unstable;
-    };
+    specialArgs = { inherit unstable; };
     modules = [
       ./maliketh
       ./configuration.nix
