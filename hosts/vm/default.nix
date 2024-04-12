@@ -64,16 +64,9 @@
     xkb.layout = "au";
     xkb.variant = "";
 
-    displayManager.sx.enable = true;
+    # displayManager.sx.enable = true;
     windowManager.i3.enable = true;
 
     excludePackages = [ pkgs.xterm ];
-  };
-
-  # Remote Desktop
-  services.xrdp = {
-    enable = true;
-    openFirewall = true;
-    defaultWindowManager = "i3";
   };
 }

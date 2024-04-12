@@ -13,8 +13,11 @@
     ];
   };
 
-  xsession.windowManager.i3.config = {
-    terminal = "termite";
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      terminal = "termite";
+    };
   };
 
   programs.rofi.enable = true;
