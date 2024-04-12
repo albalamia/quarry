@@ -52,9 +52,7 @@
   # Installing Packages
   environment.pathsToLink = [ "/libexec" ];
   environment.systemPackages = with pkgs; [
-    termite
     bun
-    rofi
   ];
 
   # Services

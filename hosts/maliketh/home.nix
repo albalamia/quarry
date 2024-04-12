@@ -7,9 +7,17 @@
     stateVersion = "23.11";
     packages = with pkgs;
     [
-
+      neovim
+      termite
+      rofi
     ];
   };
+
+  xsession.windowManager.i3.config = {
+    terminal = "termite";
+  };
+
+  programs.rofi.enable = true;
 
   # Git
   programs.git = {
