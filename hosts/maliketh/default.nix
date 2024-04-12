@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -51,9 +51,10 @@
 
   # Installing Packages
   environment.pathsToLink = [ "/libexec" ];
-  environment.systemPackages = [
-    pkgs.termite
-    unstable.bun
+  environment.systemPackages = with pkgs; [
+    termite
+    bun
+    rofi
   ];
 
   # Services
@@ -65,12 +66,7 @@
     xkb.variant = "";
 
     displayManager.sx.enable = true;
-
-    windowManager.i3 = {
-      extraPackages = with pkgs; [
-        rofi # Application Launcher
-      ];
-    };
+    windowManager.i3.enable = true;
 
     excludePackages = [ pkgs.xterm ];
   };

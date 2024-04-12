@@ -4,12 +4,11 @@
 # Laptop  -
 # Servers -
 
-{ nixpkgs, unstable, home-manager, ... }:
+{ nixpkgs, home-manager, ... }:
 
 {
   maliketh = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = { inherit unstable; };
     modules = [
       ./maliketh
       ./configuration.nix
