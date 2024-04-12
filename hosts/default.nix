@@ -16,10 +16,10 @@
     ];
   };
 
-  nixos = nixpkgs.lib.nixosSystem {
+  vm = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./nixos
+      ./vm
       ./configuration.nix
       home-manager.nixosModules.home-manager
     ];
